@@ -14,6 +14,11 @@ cmake_minimum_required(VERSION 3.11)
 set(CMAKE_DISABLE_SOURCE_CHANGES ON)
 set(CMAKE_DISABLE_IN_SOURCE_BUILD ON)
 
+if(WIN32)
+  # TC requires Win10 SDK, it's still possible to build and run on older Windows
+  set(CMAKE_SYSTEM_VERSION "10.0" CACHE STRING INTERNAL FORCE)
+endif()
+
 # Set projectname (must be done AFTER setting configurationtypes)
 project(TrinityCore)
 
